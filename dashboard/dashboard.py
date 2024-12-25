@@ -5,6 +5,10 @@ import streamlit as st
 import datetime as dt
 sns.set(style='dark')
 
+# Set the web app title
+st.set_page_config(page_title='Bike Sharing Dashboard', page_icon='🚲', initial_sidebar_state='auto')
+
+# Membaca dataset
 hour_df = pd.read_csv("dashboard/hour.csv")
 
 #  Mengubah tipe data pada kolom 'dteday' menjadi datetime
@@ -14,6 +18,7 @@ hour_df['dteday'] = pd.to_datetime(hour_df['dteday'])
 min_date = hour_df["dteday"].min()
 max_date = hour_df["dteday"].max()
 
+# Menambahkan sidebar
 with st.sidebar:
     st.title("Bike Sharing Dashboard")
 
@@ -34,11 +39,12 @@ hour_df = hour_df[(hour_df['dteday'] >= start_date) & (hour_df['dteday'] <= end_
 
 # Melengkapi Dashboard dengan Berbagai Visualisasi Data
 st.header('Bike Sharing Dashboard :sparkles:')
+st.write("Dashboard ini berisi analisis data peminjaman sepeda menggunakan dataset [Bike Sharing](https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset) dari UCI Machine Learning Repository.")
 
 # Pertanyaan 1
 st.subheader('Bagaimana pengaruh hari kerja dan hari libur terhadap jumlah peminjaman sepeda?')
 
-# Menampilkan Total Hari Kerja dan Hari Libur
+# Menampilkan metrik hari kerja dan hari libur
 col1, col2 = st.columns(2)
 with col1:
     total_workday = hour_df[hour_df["workingday"] == 1].shape[0]
@@ -78,7 +84,7 @@ st.pyplot(fig)
 # Pertanyaan 2
 st.subheader('Bagaimana pengaruh pengguna sepeda berlangganan dan tidak berlangganan terhadap jumlah peminjaman sepeda?')
 
-# Menampilkan Total Pengguna Sepeda Berlangganan dan Tidak Berlangganan
+# Menampilkan metrik pengguna berlangganan dan tidak berlangganan
 col1, col2 = st.columns(2)
 with col1:
     total_registered = hour_df["registered"].sum()
@@ -284,4 +290,4 @@ ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
 st.pyplot(fig)
 
 # Menampilkan Footer
-st.caption('[Bima Rakajati](https://github.com/bimarakajati/Bike-Sharing-Data-Analysis) - 2024')
+st.caption('Bima Rakajati - 2024 (https://github.com/bimarakajati)')
