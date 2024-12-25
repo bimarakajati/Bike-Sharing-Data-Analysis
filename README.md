@@ -59,7 +59,7 @@ streamlit run dashboard.py
 ```
 ┌── dashboard
 │   ├── dashboard.py
-│   └── hour.csv
+│   └── main_data.csv
 ├── data
 │   ├── day.csv
 │   ├── hour.csv

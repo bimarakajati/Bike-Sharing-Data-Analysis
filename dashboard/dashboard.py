@@ -9,7 +9,7 @@ sns.set(style='dark')
 st.set_page_config(page_title='Bike Sharing Dashboard', page_icon='🚲', initial_sidebar_state='auto')
 
 # Membaca dataset
-hour_df = pd.read_csv("dashboard/hour.csv")
+hour_df = pd.read_csv("dashboard/main_data.csv")
 
 #  Mengubah tipe data pada kolom 'dteday' menjadi datetime
 hour_df['dteday'] = pd.to_datetime(hour_df['dteday'])
