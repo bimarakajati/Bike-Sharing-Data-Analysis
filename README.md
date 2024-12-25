@@ -51,9 +51,14 @@ pip install -r requirements.txt
 
 ### Menjalankan Dashboard
 Untuk menjalankan dashboard menggunakan Streamlit, jalankan perintah berikut:
-```bash
-streamlit run dashboard.py
-```
+- Masuk ke direktori `dashboard`
+- Jalankan perintah berikut:
+    ```bash
+    streamlit run dashboard.py
+    ```
+- Atau akses dashboard melalui link berikut:
+
+    `https://bike-sharing-viz.streamlit.app`
 
 ## Struktur Direktori
 ```
@@ -69,8 +74,3 @@ streamlit run dashboard.py
 ├── requirements.txt
 └── url.txt
 ```
-
-## Kontak
-- **Nama:** Bima Rakajati
-- **Email:** bimandugal@gmail.com
-- **ID Dicoding:** [bimarakajati](https://www.dicoding.com/users/bimarakajati/academies)
