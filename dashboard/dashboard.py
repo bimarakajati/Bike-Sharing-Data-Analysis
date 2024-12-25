@@ -22,10 +22,15 @@ with st.sidebar:
     
     # Mengambil start_date & end_date dari date_input
     start_date, end_date = st.date_input(
-        label='Rentang Waktu',min_value=min_date,
+        label='Rentang Waktu', min_value=min_date,
         max_value=max_date,
         value=[min_date, max_date]
     )
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date)
+
+# Filter data berdasarkan tanggal
+hour_df = hour_df[(hour_df['dteday'] >= start_date) & (hour_df['dteday'] <= end_date)]
 
 # Melengkapi Dashboard dengan Berbagai Visualisasi Data
 st.header('Bike Sharing Dashboard :sparkles:')
@@ -279,4 +284,4 @@ ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
 st.pyplot(fig)
 
 # Menampilkan Footer
-st.caption('Bima Rakajati - 2024')
+st.caption('[Bima Rakajati](https://github.com/bimarakajati/Bike-Sharing-Data-Analysis) - 2024')
